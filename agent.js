@@ -1,5 +1,5 @@
 
-class GyaanSetu {
+class LLMPro {
     constructor() {
         this.version = '2.8.0';
         this.initialized = false;
@@ -58,9 +58,9 @@ class GyaanSetu {
             this.hideLoadingScreen();
             this.emit('app:initialized');
             this.showWelcomeMessage();
-            console.log(`GyaanSetu v${this.version} initialized successfully`);
+            console.log(`LLMPro v${this.version} initialized successfully`);
         } catch (error) {
-            console.error('Failed to initialize GyaanSetu:', error);
+            console.error('Failed to initialize LLMPro:', error);
             this.showToast('error', 'Initialization Error', `Failed to start the application: ${error.message || error}`);
             try { this.hideLoadingScreen(); } catch(_) {}
         }
@@ -575,7 +575,7 @@ class GyaanSetu {
             messageEl.className = `message ${message.role}`;
             messageEl.dataset.messageId = message.id;
 
-            const senderName = { user: 'You', assistant: 'GyaanSetu', system: 'System', tool: 'Tool' }[message.role] || message.role;
+            const senderName = { user: 'You', assistant: 'LLMPro', system: 'System', tool: 'Tool' }[message.role] || message.role;
             const avatarIcon = { user: 'fa-user', assistant: 'fa-robot', system: 'fa-cog', tool: 'fa-wrench' }[message.role] || 'fa-comment';
 
             // If content is a string and marked exists, render markdown
@@ -992,7 +992,7 @@ class GyaanSetu {
     showWelcomeMessage() {
         const conv = this.state.conversations.get(this.state.currentConversationId);
         if (conv && conv.messages.length === 0) {
-            this.addMessage('assistant', 'Welcome to GyaanSetu! How can I assist you?');
+            this.addMessage('assistant', 'Welcome to LLMPro! How can I assist you?');
         }
     }
 
@@ -1146,5 +1146,5 @@ class GyaanSetu {
 
 // initialize the app
 document.addEventListener('DOMContentLoaded', () => {
-    window.agentFlow = new GyaanSetu();
+    window.agentFlow = new LLMPro();
 });
